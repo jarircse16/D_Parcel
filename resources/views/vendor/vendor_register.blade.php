@@ -125,13 +125,20 @@
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                                    <label class="form-check-label" for="remember-me"> Terms and Conditions </label>
+                                    <input class="form-check-input" type="checkbox" id="terms-and-conditions" />
+                                    <label class="form-check-label" for="terms-and-conditions">  <a href="{{ route('terms_and_conditions') }}" target="_blank"><span style="color: #2c8a03;">Terms and Conditions</span></a>. </label>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-success d-grid w-50 mx-auto custom-button" type="submit">Register</button>
+                                <button id="registerButton" class="btn btn-success d-grid w-50 mx-auto custom-button" type="submit" disabled>Register</button>
                             </div>
+
+                            <script>
+                                document.getElementById('terms-and-conditions').addEventListener('change', function () {
+                                    var registerButton = document.getElementById('registerButton');
+                                    registerButton.disabled = !this.checked;
+                                });
+                            </script>
                         </form>
 
                         <p class="text-center">
