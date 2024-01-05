@@ -25,12 +25,15 @@
                                 <h4 class="vendor-title">Admin Dashboard</h4>
                                 <div class="col-lg-3 col-md-6 col-6 mb-4">
                                     <a href="{{ route('vendor.pending.delivery') }}" style="color: black">
+
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                    
+                                                    <i style="background-color: #f7b614;padding: 10px;font-size: 22px;border-radius: 100px;" class="fa-solid fa-clock-rotate-left"></i>
                                                     </div>
+                                                    
                                                 </div>
 
                                                 <span class="fw-semibold d-block mb-1">Pending Pickup</span>
@@ -52,7 +55,8 @@
                                                     alt="Credit Card"
                                                     class="rounded"
                                                   /> -->
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i  class='vendor-icon bx bx-group'></i> -->
+                                                        <i style="background-color: #f7b614;padding-top: 12px; padding-bottom: 12px; padding-left: 10px; padding-right: 10px;font-size: 20px;border-radius: 100px;"  class="fa-solid fa-truck"></i>
                                                     </div>
                                                 </div>
 
@@ -72,7 +76,8 @@
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
 
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 22px;border-radius: 100px;" class="fa-solid fa-truck-fast"></i>
                                                     </div>
                                                 </div>
 
@@ -92,7 +97,9 @@
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
 
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i  style="background-color: #f7b614;padding: 10px;font-size: 22px;border-radius: 100px;" <i class="fa-solid fa-parachute-box"></i></i>
+                                                       
                                                     </div>
                                                 </div>
 
@@ -110,7 +117,8 @@
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <i class='vendor-icon bx bx-notepad'></i>
+                                                        <!-- <i class='vendor-icon bx bx-notepad'></i> -->
+                                                        <i  style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-envelopes-bulk"></i>
                                                     </div>
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">Bulk Deliveries</span>
@@ -127,7 +135,8 @@
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
 
-                                                        <i class='vendor-icon bx bx-cube-alt'></i>
+                                                        <!-- <i class='vendor-icon bx bx-cube-alt'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-people-roof"></i>
                                                     </div>
                                                 </div>
                                                 <span class="fw-semibold d-block mb-1">Total Vendor</span>
@@ -143,7 +152,8 @@
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <i class='vendor-icon bx bx-check'></i>
+                                                        <!-- <i class='vendor-icon bx bx-check'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-person-biking"></i>
                                                     </div>
                                                 </div>
                                                 <span>Total Rider</span>
@@ -157,7 +167,8 @@
                                         <div class="card-body">
                                             <div class="card-title d-flex align-items-start justify-content-between">
                                                 <div class="avatar flex-shrink-0">
-                                                    <i class='vendor-icon bx bx-car'></i>
+                                                    <!-- <i class='vendor-icon bx bx-car'></i> -->
+                                                    <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-panorama"></i>
                                                 </div>
                                             </div>
                                             <span>Total Area</span>
@@ -178,7 +189,8 @@
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i style="background-color: #f7b614;padding: 10px;font-size: 22px;border-radius: 100px;" class="fa-solid fa-crosshairs"></i>
                                                     </div>
                                                 </div>
 
@@ -201,7 +213,8 @@
                                                     alt="Credit Card"
                                                     class="rounded"
                                                   /> -->
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i style="background-color: #f7b614;padding-top: 12px; padding-bottom: 12px; padding-left: 15px; padding-right: 15px;font-size: 18px;border-radius: 100px;" class="fa-regular fa-hourglass-half"></i>
                                                     </div>
                                                 </div>
 
@@ -221,7 +234,8 @@
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
 
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-truck-ramp-box"></i>
                                                     </div>
                                                 </div>
 
@@ -241,7 +255,8 @@
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
 
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 12px 12px 12px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-dove"></i>
                                                     </div>
                                                 </div>
 
@@ -258,7 +273,8 @@
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
 
-                                                        <i class='vendor-icon bx bx-group'></i>
+                                                        <!-- <i class='vendor-icon bx bx-group'></i> -->
+                                                        <i <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-plane-slash"></i>
                                                     </div>
                                                 </div>
 

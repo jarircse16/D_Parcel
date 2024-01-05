@@ -60,13 +60,4 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
-
-    //Custom 404 Route
-    protected function mapFallbackRoutes()
-    {
-        Route::fallback(function () {
-            return response()->view('errors.404', [], 404);
-        });
-    }
-
 }

@@ -11,16 +11,6 @@ use App\Http\Controllers\Vendor\DeliveryController;
 use App\Http\Controllers\Admin\AdminRiderController;
 use App\Http\Controllers\Admin\AdminVendorController;
 
-Route::redirect('/', '/?', 301);
-Route::redirect('', '/?', 301);
-Route::permanentRedirect('/', '/?');
-Route::permanentRedirect('', '/?');
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -119,17 +109,17 @@ Route::group(['prefix' => 'rider', 'middleware' => 'rider'], function () {
     Route::get('processing-pickdrops', [RiderController::class, 'processingPickList'])->name('processing.pick_drop.list');
     Route::get('processing-pickdrop/{id}', [RiderController::class, 'proccesingPickDetails'])->name('processing.pick_drop');
     Route::post('update-processing-pickdrop/{id}', [RiderController::class, 'processingPickStore'])->name('processing.pick_drop.store');
-
+    
     Route::get('pending-pickdrop-list', [RiderController::class, 'pending_pickdrop_list'])->name('pending_pickdrop_list');
-    Route::get('approve-drop/{id}', [RiderController::class, 'approve_drop_pickup'])->name('approve_drop_pickup');
-    Route::post('approve-drop/{id}', [RiderController::class, 'approve_drop_pickup'])->name('approve_drop_pickup');
+    Route::get('approve-drop/{id}', [RiderController::class, 'approve_drop_pickup'])->name('approve_drop_pickup'); 
+    Route::post('approve-drop/{id}', [RiderController::class, 'approve_drop_pickup'])->name('approve_drop_pickup'); 
     Route::get('decline-drop/{id}', [RiderController::class, 'decline_drop_pickup'])->name('decline_drop_pickup');
     Route::get('processing-pickdrop-list', [RiderController::class, 'processing_pickdrop_list'])->name('processing_pickdrop_list');
     Route::get('processing-dropDetails/{id}', [RiderController::class, 'processing_pickdrop_details'])->name('processing_pickdrop_details');
     Route::post('processing-dropDetails/{id}', [RiderController::class, 'processing_pickdrop_store'])->name('processing_pickdrop_store');
 
 
-});
+}); 
 
 
 
@@ -145,7 +135,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('area', AreaController::class);
 
     Route::get('bulk/delivery/list', [AdminController::class, 'bulkDeliveries'])->name('bulk.delivery.list');
-
+    
     Route::get('vendor/pending/delivery', [AdminVendorController::class, 'pending_delivery'])->name('vendor.pending.delivery');
     Route::get('pending/delivery/{id}', [AdminVendorController::class, 'pending_pickup_delivery'])->name('pending.delivery');
     Route::put('pending/delivery/{id}', [AdminVendorController::class, 'pending_pickup_delivery_store'])->name('pending.delivery.store');
@@ -153,7 +143,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('vendor/processing/delivery', [AdminVendorController::class, 'processing_delivery'])->name('vendor.processing.delivery');
     Route::get('vendor/processing/pickup/{id}', [AdminVendorController::class, 'processing_pickup_delivery'])->name('vendor.processing.pickup');
     Route::put('vendor/processing/pickup/{id}', [AdminVendorController::class, 'processing_pickup_delivery_store'])->name('vendor.processing.pickup.store');
-
+    
     Route::get('vendor/complete/delivery', [AdminVendorController::class, 'complete_delivery_list'])->name('vendor.complete.delivery');
     Route::get('vendor/complete/{id}', [AdminVendorController::class, 'complete_delivery_create'])->name('vendor.complete');
     Route::put('vendor/complete/{id}', [AdminVendorController::class, 'complete_delivery_store'])->name('vendor.complete.store');
@@ -185,7 +175,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::get('return/list', [AdminController::class, 'return_list'])->name('return.list');
     Route::get('complete/pickup/list', [AdminVendorController::class, 'complete_pickup'])->name('complete.pickup');
-
+    
     Route::get('completed-pickup', [AdminController::class, 'completedPick'])->name('completed.pickup');
     Route::get('completed-pickup/details/{id}', [AdminController::class, 'completedPickDetails'])->name('completed.pickup.details');
 
@@ -200,8 +190,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 });
 
 
-
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/pickdrop', [PickDropController::class, 'index'])->name('pickdrop');
 // Route::get('/pickdrop/create', [PickDropController::class, 'create'])->name('pickdrop.create');

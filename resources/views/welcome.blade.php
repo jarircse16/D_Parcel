@@ -165,7 +165,7 @@
         <div class="col-lg-4 col-md-6 ">
           <div class="footer-content">
             <div class="footer-logo">
-              <img class="img-fluid" src="{{ asset('customer/img/logo/dmanLogo.png') }}" alt="dman" />
+              <img class="img-fluid" src="{{ asset('customer/img/logo/Logo.png') }}" alt="dman" />
             </div>
             <p>
               DMan is a delivery service that allows Vendor to provide their product door to door with safety. We have

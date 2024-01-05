@@ -133,7 +133,7 @@
                                             aria-label="658 799 8941" aria-describedby="basic-default-phone" />
                                     </div>
                                 </div>
-{{--
+{{-- 
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label"
                                         for="basic-default-email">Destination</label>
@@ -147,7 +147,7 @@
                                         </div>
                                     </div>
                                 </div> --}}
-{{--
+{{-- 
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-email">Delivery
                                         Type</label>
