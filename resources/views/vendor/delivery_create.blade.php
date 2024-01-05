@@ -31,6 +31,11 @@
                                             id="basic-default-name" placeholder="Item Name" />
                                     </div>
                                 </div> -->
+
+
+                                <input type="hidden" name="item_name" value="BAL">
+
+
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-company">Weight :</label>
                                     <div class="col-sm-10">
@@ -62,6 +67,8 @@
                                     </div>
                                 </div> --}}
 
+                                <option type="hidden" value="inside_city">
+
                                 {{-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-email">Delivery Type :</label>
                                     <div class="col-sm-10">
@@ -75,7 +82,8 @@
 
                                     </div>
                                 </div> --}}
-                               
+
+                                <option type="hidden" value="Online Payment">
 
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-phone">Delivery Charge :</label>
@@ -95,27 +103,18 @@
                                     </div>
                                 </div> -->
 
-                                <!-- <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Pickup Time
-                                        :</label>
-                                    <div class="col-sm-10">
-                                        <input required name="delivery_time" type="datetime-local" class="form-control"
-                                            id="basic-default-address" />
-                                    </div>
-                                </div> -->
-                                
+                                <input type="hidden" name="total_price" value="10">
 
-                            
-                                
+
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Name :</label>
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Name :</label>
                                     <div class="col-sm-10">
                                         <input required name="recipient_name" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Recipiet Name" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Number :</label>
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Number :</label>
                                     <div class="col-sm-10">
                                         <input required name="recipient_number" type="number" class="form-control"
                                             id="basic-default-address" placeholder="Recipiet Number" maxlength="14" />
@@ -130,7 +129,7 @@
                                             id="basic-default-address" placeholder="Flat no" />
                                     </div>
                                 </div> -->
-
+                                <input type="hidden" name="flat_no" value="10">
                                 <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Road no :</label>
                                     <div class="col-sm-10">
@@ -138,9 +137,10 @@
                                             id="basic-default-address" placeholder="Road No" />
                                     </div>
                                 </div> -->
+                                <input type="hidden" name="road_no" value="10">
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Address
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Address
                                         :</label>
                                     <div class="col-sm-10">
                                         <input required name="recipient_address" type="text" class="form-control"
@@ -160,8 +160,7 @@
                                     <div
                                         class="col-lg-12 d-flex justify-content-center align-items-center gap-4 form-button">
                                         <button type="submit" class="btn btn-primary">SUBMIT</button>
-                                        <button type="button"
-                                            class="btn rounded-pill btn-outline-warning">DISCARD</button>
+                                        <button type="button" class="btn rounded-pill btn-outline-warning"><a href="/vendor/delivery">DISCARD</a></button>
                                     </div>
 
                                 </div>
@@ -183,14 +182,14 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 <script>
-    
+
     $(document).ready(function () {
         $('select[name="delivery_des"]').on('change', function () {
             var delivery_des = $(this).val();
             var delivery_type = $('select[name="delivery_type"]').val();
             var item_price = $('#item_price').val();
-           
-            
+
+
             // if inside city then delivery_charge = item_price * 50
             if (delivery_des == 'inside_city') {
                 var delivery_charge = 50;

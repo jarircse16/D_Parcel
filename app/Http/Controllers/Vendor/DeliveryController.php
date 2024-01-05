@@ -160,50 +160,37 @@ class DeliveryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'item_name' => 'required',
-            'qty' => 'required',
-            'item_price' => 'required',
-            'delivery_charge' => 'required',
-            'total_price' => 'required',
-            // 'delivery_type' => 'required',
-            // 'delivery_des' => 'required',
-            'recipient_name' => 'required',
-            'recipient_number' => 'required',
-            'recipient_address' => 'required',
-        ]);
+{
+    // Validate the request data
+    $request->validate([
+        'item_name' => 'required',
+        'qty' => 'required|integer',
+        'item_price' => 'required|numeric',
+        'delivery_charge' => 'required|numeric',
+        'total_price' => 'required|numeric',
+        'delivery_time' => 'required|date',
+        'recipient_name' => 'required',
+        'recipient_number' => 'required',
+        'recipient_address' => 'required',
+    ]);
 
-        $delivery = Delivery::find($id);
-        $delivery->vendor_id = Auth::guard('vendor')->user()->id;
-        $delivery->item_name = $request->item_name;
-        $delivery->qty = $request->qty;
-        $delivery->item_price = $request->item_price;
-        $delivery->delivery_charge = $request->delivery_charge;
-        $delivery->total_price = $request->total_price;
-        if ($request->delivery_type == 'cash_on') {
-            $delivery->delivery_type = 'cash on delivery';
-        } else {
-            $delivery->delivery_type = 'online payment';
-        }
-        if ($delivery->delivery_type == 'delivery_des') {
-            $delivery->delivery_des = 'inside city';
-        } else {
-            $delivery->delivery_des = 'outside city';
-        }
-        $delivery->recipient_name = $request->recipient_name;
-        $delivery->recipient_number = $request->recipient_number;
-        $delivery->recipient_address = $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address;
-        $delivery->status = 'Pending';
-        $delivery->delivery_time = date('Y-m-d');
-        $delivery->created_at = Carbon::now();
-        $delivery->updated_at = Carbon::now();
-        $delivery->save();
-        Toastr::success('Delivery Updated Successfully', 'Success');
-        return redirect()
-            ->route('delivery.index')
-            ->with('success', 'Delivery Updated Successfully');
-    }
+    // Find the delivery record
+    $delivery = Delivery::find($id);
+
+    // Update the delivery record with the validated request data
+    $delivery->update($request->all());
+
+    // Optionally, you can update additional fields manually if needed
+    $delivery->recipient_address = $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address;
+    $delivery->status = 'Pending';
+    $delivery->delivery_time = now();
+    $delivery->save();
+
+    // Redirect to the index page with a success message
+    return redirect()->route('delivery.index')
+        ->with('success', 'Delivery updated successfully');
+}
+
 
     /**
      * Remove the specified resource from storage.
