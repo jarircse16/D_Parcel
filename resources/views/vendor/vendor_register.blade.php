@@ -111,7 +111,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-50 mx-auto " type="submit">Register</button>
+                                <button class="btn btn-primary d-grid w-50 mx-auto" type="submit">Register</button>
                             </div>
                         </form>
 
