@@ -44,6 +44,25 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('customer/js/config.js') }}"></script>
+
+    <style>
+    /* styles.css */
+    .custom-button {
+        background-color: #2c8a03;
+        border-color: #2c8a03; /* Set the border color directly */
+    }
+
+    .custom-button:hover {
+        background-color: #2c8a03;
+    }
+
+    .custom-button.btn-primary {
+        --bs-btn-color: #2c8a03;
+        --bs-btn-bg: #2c8a03;
+        border-color: #2c8a03; /* Set the border color directly */
+    }
+
+</style>
 </head>
 
 <body>
@@ -91,13 +110,13 @@
                                 <input  class="form-control" id="email" type="email" name="email" :value="old('email')"
                                     placeholder="Email" autofocus />
                             </div>
-							
 
-						
-							
+
+
+
 
                             <div class="mb-3 form-password-toggle">
-                                
+
                                 <div class="input-group input-group-merge">
                                     <input type="password"  name="password" id="password" class="form-control"
                                         placeholder="Password" aria-describedby="password" />
@@ -111,14 +130,14 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-50 mx-auto" type="submit">Register</button>
+                                <button class="btn btn-primary d-grid w-50 mx-auto custom-button" type="submit">Register</button>
                             </div>
                         </form>
 
                         <p class="text-center">
                             <span>Already have an account?</span>
                             <a href="{{ route ('vendor_login_form') }}">
-                                <span style="color: #F7B613;">Login</span>
+                                <span style="color: #2c8a03;">Login</span>
                             </a>
                         </p>
                     </div>
