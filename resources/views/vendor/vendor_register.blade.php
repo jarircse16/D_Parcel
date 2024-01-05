@@ -126,19 +126,11 @@
                             <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="terms-and-conditions" />
-                                    <label class="form-check-label" for="terms-and-conditions">  <a href="{{ route('terms_and_conditions') }}" target="_blank"><span style="color: #2c8a03;">Terms and Conditions</span></a>. </label>
+                                    <label class="form-check-label" for="terms-and-conditions"> I agree with the  <a href="{{ route('terms_and_conditions') }}" target="_blank"><span style="color: #2c8a03;">Terms and Conditions</span></a>. </label>
                                 </div>
                             </div>
                             <div class="mb-3">
-<<<<<<< HEAD
                                 <button id="registerButton" class="btn btn-success d-grid w-50 mx-auto custom-button" type="submit" disabled>Register</button>
-=======
-<<<<<<< HEAD
-                                <button class="btn btn-success d-grid w-50 mx-auto" type="submit">Register</button>
-=======
-                                <button class="btn btn-success d-grid w-50 mx-auto custom-button" type="submit">Register</button>
->>>>>>> a23550aa8683f78661a5d25ab955ba16fbccea6e
->>>>>>> 724582cecbf31df4eb8a24040fe0d8cd8909e771
                             </div>
 
                             <script>
