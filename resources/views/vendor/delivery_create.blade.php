@@ -17,21 +17,22 @@
                 <div class="col-xxl">
                     <div class="card mb-4">
                         <div class="card-header d-flex align-items-center justify-content-between">
-                            <h5 class="mb-0">Add New Delivery</h5>
+                            <!-- <h5 style="margin-left-3px" class="mb-0">Add New Delivery</h5> -->
+                            <strong style="margin:auto; font-size:20px;">Delivery Information</strong>
                             <!-- <small class="text-muted float-end">Default label</small> -->
                         </div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('delivery.store') }}" enctype="multipart/form-data">
                                 @csrf
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-name">Item Name :</label>
                                     <div class="col-sm-10">
                                         <input required type="text" name="item_name" class="form-control"
                                             id="basic-default-name" placeholder="Item Name" />
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-company">Qty :</label>
+                                    <label class="col-sm-2 col-form-label" for="basic-default-company">Weight :</label>
                                     <div class="col-sm-10">
                                         <input required type="number" name="qty" class="form-control"
                                             id="basic-default-company" placeholder="qty" />
@@ -85,26 +86,27 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-phone">Total Price :</label>
                                     <div class="col-sm-10">
                                         <input type="number" name="total_price" id="total_price"
                                             class="form-control phone-mask" placeholder="0" aria-label="658 799 8941"
                                             aria-describedby="basic-default-phone" />
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Pickup Time
                                         :</label>
                                     <div class="col-sm-10">
                                         <input required name="delivery_time" type="datetime-local" class="form-control"
                                             id="basic-default-address" />
                                     </div>
-                                </div>
+                                </div> -->
+                                
 
-                                <hr>
-                                <h1>Recipiet Info</h1>
+                            
+                                
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Name :</label>
                                     <div class="col-sm-10">
@@ -120,22 +122,22 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Flat/House no
                                         :</label>
                                     <div class="col-sm-10">
                                         <input name="flat_no" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Flat no" />
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="row mb-3">
+                                <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Road no :</label>
                                     <div class="col-sm-10">
                                         <input name="road_no" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Road No" />
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Address
@@ -143,6 +145,14 @@
                                     <div class="col-sm-10">
                                         <input required name="recipient_address" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Recipiet Address" />
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Comment :</label>
+                                    <div class="col-sm-10">
+                                        <input name="road_no" type="text" class="form-control"
+                                            id="basic-default-address" placeholder="Enter your message" />
                                     </div>
                                 </div>
 

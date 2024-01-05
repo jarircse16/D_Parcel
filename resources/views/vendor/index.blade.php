@@ -30,7 +30,9 @@
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <i class='vendor-icon bx bx-car'></i>
+                                                        <!-- <i class='vendor-icon bx bx-car'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 22px;border-radius: 100px;" class="fa-solid fa-box-open"></i>
+                                                        
                                                     </div>
                                                 </div>
 
@@ -49,7 +51,8 @@
                                         <div class="card-body">
                                             <div class="card-title d-flex align-items-start justify-content-between">
                                                 <div class="avatar flex-shrink-0">
-                                                    <i class='vendor-icon bx bx-notepad'></i>
+                                                    <!-- <i class='vendor-icon bx bx-notepad'></i> -->
+                                                    <i style="background-color: #f7b614;padding-top: 12px; padding-bottom: 12px; padding-left: 10px; padding-right: 10px;font-size: 20px;border-radius: 100px;"  class="fa-solid fa-truck"></i>
                                                 </div>
                                             </div>
                                             
@@ -67,7 +70,7 @@
                                         <div class="card-body">
                                             <div class="card-title d-flex align-items-start justify-content-between">
                                                 <div class="avatar flex-shrink-0">
-                                                    <i class='vendor-icon bx bx-cube-alt'></i>
+                                                    <i style="color: black;" class='vendor-icon bx bx-cube-alt'></i>
                                                 </div>
                                             </div>
                                             
@@ -85,7 +88,8 @@
                                         <div class="card-body">
                                             <div class="card-title d-flex align-items-start justify-content-between">
                                                 <div class="avatar flex-shrink-0">
-                                                    <i class='vendor-icon bx bx-check'></i>
+                                                    <!-- <i class='vendor-icon bx bx-check'></i> -->
+                                                    <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-truck-ramp-box"></i>
                                                 </div>
                                             </div>
                                            
@@ -103,7 +107,8 @@
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">
                                                     <div class="avatar flex-shrink-0">
-                                                        <i class='vendor-icon bx bx-car'></i>
+                                                        <!-- <i class='vendor-icon bx bx-car'></i> -->
+                                                        <i style="background-color: #f7b614;padding:12px 12px 12px 12px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-dove"></i>
                                                     </div>
                                                 </div>
 

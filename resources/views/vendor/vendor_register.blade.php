@@ -130,7 +130,15 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+<<<<<<< HEAD
                                 <button id="registerButton" class="btn btn-success d-grid w-50 mx-auto custom-button" type="submit" disabled>Register</button>
+=======
+<<<<<<< HEAD
+                                <button class="btn btn-success d-grid w-50 mx-auto" type="submit">Register</button>
+=======
+                                <button class="btn btn-success d-grid w-50 mx-auto custom-button" type="submit">Register</button>
+>>>>>>> a23550aa8683f78661a5d25ab955ba16fbccea6e
+>>>>>>> 724582cecbf31df4eb8a24040fe0d8cd8909e771
                             </div>
 
                             <script>
