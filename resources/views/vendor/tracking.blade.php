@@ -23,7 +23,7 @@
 		/* Additional print-specific styling as needed */
 	}
 </style>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
  <!-- Content -->
 
  <div class="container-xxl flex-grow-1 container-p-y">
@@ -39,7 +39,8 @@
 		<article class="tracking">
 		  <!-- <header class="card-header"> My Orders / Tracking </header> -->
 		  <div class="track-detail">
-			<div id="printSection" align:center>
+			<button id="toggleReportButton">View Report</button>
+			<div id="printSection" align:center style="display: none;">
 			<img src= {{ asset('customer/img/logo/logo.png') }} height="20%" width="20%">
 			<h4 text-align:center>Delivery Report</h4>
 			<h6>Weight: {{$delivery->qty}}</h6>
@@ -56,6 +57,16 @@
 			function printReport() {
 				window.print(); // Trigger print dialog
 			}
+		</script>
+		<script>
+			$(document).ready(function () {
+				// Toggle visibility and change button text
+				$('#toggleReportButton').on('click', function () {
+					$('#printSection').toggle();
+					var buttonText = $('#printSection').is(':visible') ? 'Hide Report' : 'View Report';
+					$('#toggleReportButton').text(buttonText);
+				});
+			});
 		</script>
 			<div class="track">
 			  <div class="step active">
