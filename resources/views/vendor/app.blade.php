@@ -132,6 +132,14 @@
                             <div data-i18n="Analytics">Bulk Delivery</div>
                         </a>
                     </li>
+
+              {{--     <!-- <li class="menu-item">
+                        <a href="{{ route('vendor.scan-qr-code') }}" class="menu-link">
+                            <!-- <i class="menu-icon tf-icons bx bx-home-circle"></i> -->
+                            <i class='menu-icon tf-icons bx bx-barcode'></i></i>
+                            <div data-i18n="Analytics">Scan QR Code</div>
+                        </a>
+                    </li> --}}
                 </ul>
             </aside>
             <!-- / Menu -->

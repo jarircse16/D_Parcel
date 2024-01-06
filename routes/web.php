@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Vendor\DeliveryController;
 use App\Http\Controllers\Admin\AdminRiderController;
 use App\Http\Controllers\Admin\AdminVendorController;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,12 @@ Route::group(['prefix' => 'vendor', 'middleware' => 'vendor'], function () {
 
     Route::any('/vendor/delivery/{id}', [DeliveryController::class, 'update'])->name('delivery.update');
     
+    // routes/web.php
+    Route::get('/delivery/{id}', [DeliveryController::class, 'showDelivery'])->name('delivery.show');
+    Route::view('/scan-qr-code', 'vendor.scan-qr-code')->name('vendor.scan-qr-code');
+    
+
+
   //  Route::any('delivery/{id}', function ($id) {
         // Your route logic here
    // })->name('delivery.update');

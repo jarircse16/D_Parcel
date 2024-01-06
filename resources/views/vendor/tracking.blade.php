@@ -50,8 +50,46 @@
 			<h6>Recepient Name: {{$delivery->recipient_name}}</h6>
 			<h6>Recepient Number: {{$delivery->recipient_number}}</h6>
 			<h6>Recepient Address: {{$delivery->recipient_address}}</h6>
+			<div id="orderID" style="display: none;">Order ID:{{$delivery->id}}</div>
+			<div id="qrcode"></div>
 		</div>
 		<button onclick="printReport()" class="btn btn-primary text-uppercase">Print Report</button>
+		<button id="toggleQRButton" class="btn btn-primary text-uppercase" onclick="generateQRCode()">Generate QR Code</button>
+		<script src="https://cdn.rawgit.com/neocotic/qrious/4.0.2/dist/qrious.min.js"></script>
+		<script>
+			function generateQRCode() {
+				var orderIDElement = document.getElementById("orderID");
+				if (!orderIDElement) {
+					console.error("Order ID element not found");
+					return;
+				}
+	
+				var orderID = orderIDElement.innerText;
+				var recipientName = "{{$delivery->recipient_name}}";
+				var recipientNumber = "{{$delivery->recipient_number}}";
+	
+				var qrCodeContent = `Order ID: ${orderID}\nRecipient Name: ${recipientName}\nRecipient Number: ${recipientNumber}`;
+	
+				var qrContainer = document.getElementById('qrcode');
+				if (!qrContainer) {
+					console.error("QR code container not found");
+					return;
+				}
+	
+				var qr = new QRious({
+					element: qrContainer,
+					value: qrCodeContent,
+					size: 150
+				});
+	
+				document.getElementById("popupContainer").style.display = "block";
+			}
+	
+			function closePopup() {
+				document.getElementById("popupContainer").style.display = "none";
+			}
+		</script>
+		
 		<script>
 			// Function to handle printing
 			function printReport() {

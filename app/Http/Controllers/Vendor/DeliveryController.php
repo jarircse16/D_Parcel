@@ -135,8 +135,17 @@ class DeliveryController extends Controller
      */
     public function show($id)
     {
-        //
+ 
     }
+
+    public function showDelivery($id)
+    {
+    
+        $delivery = Delivery::find($id);
+
+        return view('vendor.scan-qr-code', compact('delivery'));
+    }   
+
 
     /**
      * Show the form for editing the specified resource.
@@ -159,37 +168,44 @@ class DeliveryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-public function update(Request $request, $id)
-{
-    dd($request->all()); // Add this line for debugging
-    // Validate the request data
-    $request->validate([
-        'qty' => 'required|integer',
-        'item_price' => 'required|numeric',
-        'delivery_charge' => 'required|numeric',
-        'delivery_time' => 'required|date',
-        'recipient_name' => 'required',
-        'recipient_number' => 'required',
-        'recipient_address' => 'required',
-    ]);
-
-    // Find the delivery record
-    $delivery = Delivery::find($id);
-
-    // Update the delivery record with the validated request data
-    $delivery->update($request->all());
-
-    // Optionally, you can update additional fields manually if needed
-    //$delivery->recipient_address = $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address;
-  //  $delivery->status = 'Pending';
-   // $delivery->delivery_time = now();
-    $delivery->save();
-
-    // Redirect to the index page with a success message
-    return redirect()->route('delivery.index')
-        ->with('success', 'Delivery updated successfully');
-}
-
+    public function update(Request $request, $id)
+    {
+        // Validate the request data
+        $request->validate([
+            'qty' => 'required|integer',
+            'item_price' => 'required|numeric',
+            'delivery_charge' => 'required|numeric',
+            'delivery_time' => 'required|date',
+            'recipient_name' => 'required',
+            'recipient_number' => 'required',
+            'recipient_address' => 'required',
+        ]);
+    
+        // Find the delivery record
+        $delivery = Delivery::find($id);
+    
+        // Update the delivery record with the validated request data
+        $delivery->update([
+            'qty' => $request->qty,
+            'item_price' => $request->item_price,
+            'delivery_charge' => $request->delivery_charge,
+            'delivery_time' => $request->delivery_time,
+            'recipient_name' => $request->recipient_name,
+            'recipient_number' => $request->recipient_number,
+            'recipient_address' => $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address,
+        ]);
+    
+        // Optionally, you can update additional fields manually if needed
+        // $delivery->additional_field = $request->additional_field;
+    
+        // Save the changes
+        $delivery->save();
+    
+        // Redirect to the index page with a success message
+        return redirect()->route('delivery.index')
+            ->with('success', 'Delivery updated successfully');
+    }
+    
 
     /**
      * Remove the specified resource from storage.
