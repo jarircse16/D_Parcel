@@ -39,7 +39,7 @@
 		<article class="tracking">
 		  <!-- <header class="card-header"> My Orders / Tracking </header> -->
 		  <div class="track-detail">
-			<button id="toggleReportButton">View Report</button>
+			<button id="toggleReportButton" class="btn btn-primary text-uppercase">View Report</button>
 			<div id="printSection" align:center style="display: none;">
 			<img src= {{ asset('customer/img/logo/logo.png') }} height="20%" width="20%">
 			<h4 text-align:center>Delivery Report</h4>
@@ -51,7 +51,7 @@
 			<h6>Recepient Number: {{$delivery->recipient_number}}</h6>
 			<h6>Recepient Address: {{$delivery->recipient_address}}</h6>
 		</div>
-		<button onclick="printReport()">Print Report</button>
+		<button onclick="printReport()" class="btn btn-primary text-uppercase">Print Report</button>
 		<script>
 			// Function to handle printing
 			function printReport() {
