@@ -55,8 +55,10 @@
 		<script>
 			// Function to handle printing
 			function printReport() {
-				window.print(); // Trigger print dialog
-			}
+        	$('#printSection').show(); // Show the hidden section
+        	window.print(); // Trigger print dialog
+        	$('#printSection').hide(); // Hide the section again
+    	}
 		</script>
 		<script>
 			$(document).ready(function () {
