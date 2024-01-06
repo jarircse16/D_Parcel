@@ -65,7 +65,7 @@
                                 </a>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-6 mb-4">
-                                    <a href="{{ route('delivery.index') }}" style="color: black">
+                                    <a href="{{ route('vendor.pickup') }}" style="color: black">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -83,7 +83,7 @@
                                 </a>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-6 mb-4">
-                                    <a href="{{ route('delivery.index') }}" style="color: black">
+                                    <a href="{{ route('vendor.processing') }}" style="color: black">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-title d-flex align-items-start justify-content-between">
@@ -102,7 +102,7 @@
                                 </a>
                                 </div>
                                 <div class="col-lg-3 col-md-6 col-6 mb-4">
-                                    <a href="{{ route('delivery.index') }}" style="color: black">
+                                    <a href="{{ route('vendor.complete.list') }}" style="color: black">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="card-title d-flex align-items-start justify-content-between">

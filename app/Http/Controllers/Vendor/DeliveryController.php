@@ -159,15 +159,14 @@ class DeliveryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+public function update(Request $request, $id)
 {
+    dd($request->all()); // Add this line for debugging
     // Validate the request data
     $request->validate([
-        'item_name' => 'required',
         'qty' => 'required|integer',
         'item_price' => 'required|numeric',
         'delivery_charge' => 'required|numeric',
-        'total_price' => 'required|numeric',
         'delivery_time' => 'required|date',
         'recipient_name' => 'required',
         'recipient_number' => 'required',
@@ -181,9 +180,9 @@ class DeliveryController extends Controller
     $delivery->update($request->all());
 
     // Optionally, you can update additional fields manually if needed
-    $delivery->recipient_address = $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address;
-    $delivery->status = 'Pending';
-    $delivery->delivery_time = now();
+    //$delivery->recipient_address = $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address;
+  //  $delivery->status = 'Pending';
+   // $delivery->delivery_time = now();
     $delivery->save();
 
     // Redirect to the index page with a success message

@@ -21,9 +21,9 @@
                             <!-- <small class="text-muted float-end">Default label</small> -->
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('delivery.update', $delivery->id) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('delivery.update', $delivery) }}" >
                                 @csrf
-								@method('PUT')
+							
                                 {{--Item name--}}
                                 <!--<div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-name">Item Name :</label>
@@ -31,8 +31,8 @@
                                         <input required type="text" name="item_name" class="form-control"
                                             id="basic-default-name" value="{{$delivery->item_name}}" />
                                     </div>
-                                </div>-->
-                                <input required type="hidden" name="item_name" value="BALLS">
+                                </div>
+                                <input required type="hidden" name="item_name" value="BALLS">-->
 
                                 {{--Weight--}}
                                 <div class="row mb-3">
@@ -65,8 +65,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>-->
-                                <option type="hidden" value="inside_city">
+                                </div>
+                                <option type="hidden" value="inside_city">-->
 
                                 {{--Delivery Type--}}
                                 <!--<div class="row mb-3">
@@ -81,16 +81,15 @@
                                         </div>
 
                                     </div>
-                                </div>-->
-                                <option type="hidden" value="Online Payment">
+                                </div>
+                                <option type="hidden" value="Online Payment">-->
 
                                 {{--Delivery Charge--}}
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-phone">Delivery Charge :</label>
                                     <div class="col-sm-10">
                                         <input required type="text" id="delivery_charge"
-                                            class="form-control phone-mask" value="{{$delivery->delivery_charge}}" aria-label="658 799 8941"
-                                            aria-describedby="basic-default-phone" />
+                                            class="form-control phone-mask" value="{{$delivery->delivery_charge}}"/>
                                     </div>
                                 </div>
 
@@ -102,8 +101,8 @@
                                             class="form-control phone-mask" value="{{$delivery->total_price}}" aria-label="658 799 8941"
                                             aria-describedby="basic-default-phone" />
                                     </div>
-                                </div>-->
-                                <input type="hidden" name="total_price" value="10">
+                                </div>
+                                <input type="hidden" name="total_price" value="10">-->
 
                                 {{--Delivery Time--}}
                                 <div class="row mb-3">
@@ -141,8 +140,8 @@
                                         <input name="flat_no" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Flat no" />
                                     </div>
-                                </div> -->
-                                <input type="hidden" name="flat_no" value="10">
+                                </div> 
+                                <input type="hidden" name="flat_no" value="10">-->
 
                                 {{--Road No--}}
                            <!--     <div class="row mb-3">
@@ -151,9 +150,9 @@
                                         <input name="road_no" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Road No" />
                                     </div>
-                                </div>-->
+                                </div>
+                                <input type="hidden" name="road_no" value="10">-->
 
-                                <input type="hidden" name="road_no" value="10">
 
                                 {{--Recepient Address--}}
                                 <div class="row mb-3">

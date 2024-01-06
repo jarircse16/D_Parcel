@@ -51,6 +51,13 @@ Route::group(['prefix' => 'vendor', 'middleware' => 'vendor'], function () {
 
     Route::get('report', [VendorController::class, 'vendor_sell_report'])->name('vendor.sell_report');
 
+    Route::any('/vendor/delivery/{id}', [DeliveryController::class, 'update'])->name('delivery.update');
+    
+  //  Route::any('delivery/{id}', function ($id) {
+        // Your route logic here
+   // })->name('delivery.update');
+    
+
     //  export delivery data
     Route::get('bulk/delivery/', [VendorController::class, 'bulk_delivery'])->name('vendor.export');
     Route::post('delivery/export', [VendorController::class, 'delivery_export'])->name('delivery.export');
@@ -65,6 +72,9 @@ Route::post('rider/forget/password', [RiderController::class, 'forget_password_s
 Route::get('rider/forget/password/wait', [RiderController::class, 'forget_password_wait'])->name('rider.forget.password.wait');
 Route::get('rider/reset/password/{id}/{token}', [RiderController::class, 'reset_password'])->name('rider.reset.password');
 Route::post('rider/reset/password/store/{id}', [RiderController::class, 'reset_password_store'])->name('rider.reset.password.store');
+
+
+//Rider
 
 Route::group(['prefix' => 'rider', 'middleware' => 'rider'], function () {
     Route::get('/dashboard', [RiderController::class, 'dashboard'])->name('rider.dashboard')->middleware('rider');
@@ -151,6 +161,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('vendor/delivery/by/date/list', [AdminVendorController::class, 'delivery_by_date'])->name('delivery.by.date.list');
     Route::get('vendor/delivery/by/date', [AdminVendorController::class, 'delivery_by_date'])->name('delivery.by.date');
     Route::post('vendor/delivery/by/date', [AdminVendorController::class, 'delivery_by_date_store'])->name('delivery.by.date.store');
+
+    
 
     Route::get('vendor/date2date/list', [AdminVendorController::class, 'date_to_date_list'])->name('date2date.list');
     Route::get('vendor/date2date/create', [AdminVendorController::class, 'date_to_date'])->name('date2date.create');
