@@ -11,7 +11,6 @@
             <h4 class="fw-bold py-3 mb-4"><a href="{{ URL::previous() }}" class="text-muted fw-light">Dashboard /</a> <a href="#"
                     class="text-muted fw-light">Delivery /</a> Pending Delivery List</h4>
 
-
             <!-- Hoverable Table rows -->
             <div class="card">
                 <h5 class="card-header">Pending Delivery List</h5>
@@ -19,35 +18,26 @@
                     <table class="table table-hover" id="table_id">
                         <thead style="background-color: #393A42">
                             <tr>
-                                <th>#</th>
-                                <th>Item Name</th>
-                                <th>qty</th>
-                                <th>Recipiet Name</th>
-                                <th>Recipiet Number</th>
-                                <th>Total Price</th>
+                             <!--   <th>SL No</th> -->
+                                <th>Weight</th>
+                                <th>Item Price</th>
+                                <th>Delivery Charge</th>
+                                <th>Receipient Name</th>
+                                <th>Recipient Number</th>
+                                <th>Recipient Address</th>
                                 <th>View</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
                             @foreach ($deliveries as $key => $delivery)
                                 <tr>
-									<td>{{$key}}</td>
-                                    <td>{{ $delivery->item_name }} </td>
-                                    <td>
-                                        {{ $delivery->qty }}
-									</td>
-                                    <td>
-                                        <p>{{ $delivery->recipient_name }}</p>
-
-                                    </td>
-									<td>
-                                        <p>{{ $delivery->recipient_number }}</p>
-
-                                    </td>
-									<td>
-                                        <p>{{ $delivery->total_price }}</p>
-
-                                    </td>
+								<!--	<td>{{$key}}</td> -->
+                                    <td>{{ $delivery->qty }} </td>
+                                    <td>{{ $delivery->item_price }}</td>
+                                    <td><p>{{ $delivery->delivery_charge }}</p>                                    </td>
+									<td><p>{{ $delivery->recipient_name }}</p></td>
+									<td><p>{{ $delivery->recipient_number }}</p></td>
+                                    <td><p>{{$delivery->recipient_address}}</p></td>
                                     <td>
                                         @if ($delivery->status == 'Pending')
                                             <a href="{{ route('delivery.edit', $delivery->id) }}">

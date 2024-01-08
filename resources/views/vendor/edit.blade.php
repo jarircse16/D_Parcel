@@ -9,7 +9,7 @@
         <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard / </span>Edit Vendor</h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Dashboard / </span>Edit Delivery</h4>
 
             <!-- Basic Layout & Basic with Icons -->
             <div class="row">
@@ -17,22 +17,24 @@
                 <div class="col-xxl">
                     <div class="card mb-4">
                         <div class="card-header d-flex align-items-center justify-content-between">
-                            <h5 class="mb-0">Edit Delivery</h5>
+                            <h5 class="mb-0" style="text-align:center;">Edit Delivery</h5>
                             <!-- <small class="text-muted float-end">Default label</small> -->
                         </div>
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('delivery.update', $id) }}" >
+                        {{--Item Name--}}
+                      <div class="card-body">
+                            <form method="POST" action="{{ route('delivery.update', $delivery->id) }}" enctype="multipart/form-data">
                                 @csrf
-							
-                                {{--Item name--}}
-                                <!--<div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-name">Item Name :</label>
+								@method('PUT')
+                                <div class="row mb-3">
+                              {{--   <label class="col-sm-2 col-form-label" for="basic-default-name">Item Name :</label>
                                     <div class="col-sm-10">
                                         <input required type="text" name="item_name" class="form-control"
                                             id="basic-default-name" value="{{$delivery->item_name}}" />
-                                    </div>
+                                    </div> --}}
+
+                                   <input required type="hidden" name="item_name" class="form-control"
+                                            id="basic-default-name" value="None">
                                 </div>
-                                <input required type="hidden" name="item_name" value="BALLS">-->
 
                                 {{--Weight--}}
                                 <div class="row mb-3">
@@ -53,70 +55,76 @@
                                     </div>
                                 </div>
 
-                                {{--Item City--}}
-								<!--<div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-email">Destination :</label>
-                                    <div class="col-sm-10">
-                                        <div class="input-group input-group-merge">
-                                            <select id="delivery_des" name="delivery_des" class="form-control">
-                                                <option disabled selected="selected">Select</option>
-                                                <option value="inside_city">Inside City</option>
-                                                <option value="outside_city">Outside City</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                {{--Destination--}}
+                                <div class="row mb-3">
+                                    <!--    <label class="col-sm-2 col-form-label" for="basic-default-email" style="display: none;">Destination :</label>-->
+                                            <div class="col-sm-10">
+                                                <div class="input-group input-group-merge">
+                                                    <!-- Hidden input for the selected value -->
+                                                    <input type="hidden" name="delivery_des" value="None">                      
+                                                    <!-- Dropdown with style attribute to hide it -->
+                                                  <!-- <select id="delivery_des" name="delivery_des" class="form-control" style="display: none;">
+                                                        <option disabled selected="selected">Select</option>
+                                                        <option value="inside_city">Inside City</option>
+                                                        <option value="outside_city">Outside City</option>
+                                                    </select> -->
+                                                </div>
+                                            </div>
                                 </div>
-                                <option type="hidden" value="inside_city">-->
 
                                 {{--Delivery Type--}}
-                                <!--<div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-email">Delivery Type :</label>
+                                <div class="row mb-3">
+                             <!--       <label class="col-sm-2 col-form-label" for="basic-default-email">Delivery Type :</label> -->
                                     <div class="col-sm-10">
                                         <div class="input-group input-group-merge">
-                                            <select id="delivery_type" name="delivery_type" class="form-control">
+                                        <!-- Hidden input for the selected value -->
+                                        <input type="hidden" name="delivery_type" value="None"> 
+
+                                 <!--           <select id="delivery_type" name="delivery_type" class="form-control">
                                                 <option disabled selected="selected">Select</option>
                                                 <option value="cash_on">Cash on Delivery</option>
                                                 <option value="online_payment">Online Payment</option>
-                                            </select>
+                                            </select> -->
                                         </div>
 
                                     </div>
                                 </div>
-                                <option type="hidden" value="Online Payment">-->
-
+                               
                                 {{--Delivery Charge--}}
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-phone">Delivery Charge :</label>
                                     <div class="col-sm-10">
-                                        <input required type="text" id="delivery_charge"
-                                            class="form-control phone-mask" value="{{$delivery->delivery_charge}}"/>
-                                    </div>
-                                </div>
-
-                               {{--Total Price--}} 
-                              <!--  <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Total Price :</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" readonly name="total_price" id="total_price"
-                                            class="form-control phone-mask" value="{{$delivery->total_price}}" aria-label="658 799 8941"
+                                        <input required type="number" name="delivery_charge" id="delivery_charge"
+                                            class="form-control phone-mask" value="{{$delivery->delivery_charge}}" aria-label="658 799 8941"
                                             aria-describedby="basic-default-phone" />
                                     </div>
                                 </div>
-                                <input type="hidden" name="total_price" value="10">-->
 
-                                {{--Delivery Time--}}
+                                {{--Total Charge--}}
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Delivery Time
-                                        :</label>
+                                <!--    <label class="col-sm-2 col-form-label" for="basic-default-phone">Total Price :</label> -->
                                     <div class="col-sm-10">
-                                        <input value="{{$delivery->delivery_time}}" name="delivery_time" type="date" class="form-control"
-                                            id="basic-default-address" />
+                                        <input required type="hidden" name="total_price" class="form-control phone-mask" id="basic-default-name" value="123456">
+                                  {{--   <!--   <input type="number" name="total_price" id="total_price"
+                                            class="form-control phone-mask" value="{{$delivery->total_price}}" aria-label="658 799 8941"
+                                            aria-describedby="basic-default-phone" /> --> --}}
                                     </div>
                                 </div>
 
-                                <hr>
-                                <h1>Recipient Info</h1>
-                                 {{--Recepient Name--}}                               
+                                {{--Delivery Time--}}
+                                <div class="row mb-3">
+                               <!--     <label class="col-sm-2 col-form-label" for="basic-default-address">Delivery Time :</label> -->
+                                    <div class="col-sm-10">
+                                    <!--    <input type="text" class="form-control" value="2024-01-01 12:00:00" readonly> -->
+                                        <!-- Hidden input to submit the fixed value -->
+                                        <input type="hidden" name="delivery_time" value="2024-01-01 12:00:00">
+                                    </div>
+                                </div>
+                                
+                              <!--  <hr>
+                                <h1>Recipient Info</h1> -->
+
+                                {{--Recepient Name --}}
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Name :</label>
                                     <div class="col-sm-10">
@@ -124,6 +132,7 @@
                                             id="basic-default-address" value="{{$delivery->recipient_name}}" />
                                     </div>
                                 </div>
+
                                 {{--Recepient Number--}}
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Number :</label>
@@ -132,29 +141,26 @@
                                             id="basic-default-address" value="{{$delivery->recipient_number}}" />
                                     </div>
                                 </div>
-                                {{--Flat No--}}
-                               <!-- <div class="row mb-3">
+
+                                <!--
+                                    {{--Flat No --}}
+                                <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Flat/House no
                                         :</label>
                                     <div class="col-sm-10">
                                         <input name="flat_no" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Flat no" />
                                     </div>
-                                </div> 
-                                <input type="hidden" name="flat_no" value="10">-->
-
-                                {{--Road No--}}
-                           <!--     <div class="row mb-3">
+                                </div>
+                               {{-- House No --}}
+                              <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Road no :</label>
                                     <div class="col-sm-10">
                                         <input name="road_no" type="text" class="form-control"
                                             id="basic-default-address" placeholder="Road No" />
                                     </div>
-                                </div>
-                                <input type="hidden" name="road_no" value="10">-->
+                                </div> --}} -->
 
-
-                                {{--Recepient Address--}}
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Address
                                         :</label>
@@ -168,7 +174,8 @@
                                     <div
                                         class="col-lg-12 d-flex justify-content-center align-items-center gap-4 form-button">
                                         <button type="submit" class="btn btn-primary">SUBMIT</button>
-                                        <button type="submit" class="btn rounded-pill btn-outline-warning"><a href="../">DISCARD</a></button>
+                                        <button type="submit"
+                                            class="btn rounded-pill btn-outline-warning">DISCARD</button>
                                     </div>
 
                                 </div>
