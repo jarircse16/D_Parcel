@@ -157,6 +157,7 @@ class DeliveryController extends Controller
     {
         $data['title'] = 'Edit Delivery';
         $data['delivery'] = Delivery::find($id);
+        $data['id']=$id;
 
         return view('vendor.edit', $data);
     }
@@ -168,8 +169,10 @@ class DeliveryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+/*     public function update(Request $request, $id)
     {
+//dd($id);
+       
         // Validate the request data
         $request->validate([
             'qty' => 'required|integer',
@@ -182,8 +185,8 @@ class DeliveryController extends Controller
         ]);
     
         // Find the delivery record
-        $delivery = Delivery::find($id);
-    
+        $delivery = Delivery::find($id)->first();
+        //dd($delivery);
         // Update the delivery record with the validated request data
         $delivery->update([
             'qty' => $request->qty,
@@ -204,7 +207,41 @@ class DeliveryController extends Controller
         // Redirect to the index page with a success message
         return redirect()->route('delivery.index')
             ->with('success', 'Delivery updated successfully');
-    }
+    } */
+    public function update(Request $request, $id)
+{
+    dd($request->qty);
+    // Validate the request data
+    $request->validate([
+        'qty' => 'required|integer',
+        'item_price' => 'required|numeric',
+        'delivery_charge' => 'required|numeric',
+        'delivery_time' => 'required|date',
+        'recipient_name' => 'required',
+        'recipient_number' => 'required',
+        'recipient_address' => 'required',
+    ]); 
+
+    // Find the delivery record
+    $delivery = Delivery::findOrFail($id);
+
+    //dd($delivery);
+
+    // Update the delivery record with the validated request data
+    $delivery->update([
+        'qty' => $request->qty,
+        'item_price' => $request->item_price,
+        'delivery_charge' => $request->delivery_charge,
+        'delivery_time' => $request->delivery_time,
+        'recipient_name' => $request->recipient_name,
+        'recipient_number' => $request->recipient_number,
+        'recipient_address' => $request->flat_no . '-' . $request->road_no . '-' . $request->recipient_address,
+    ]);
+
+    // Redirect to the index page with a success message
+    return redirect()->route('delivery.index')->with('success', 'Delivery updated successfully');
+}
+
     
 
     /**

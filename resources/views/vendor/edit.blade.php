@@ -21,7 +21,7 @@
                             <!-- <small class="text-muted float-end">Default label</small> -->
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('delivery.update', $delivery) }}" >
+                            <form method="POST" action="{{ route('delivery.update', $id) }}" >
                                 @csrf
 							
                                 {{--Item name--}}

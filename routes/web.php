@@ -52,7 +52,7 @@ Route::group(['prefix' => 'vendor', 'middleware' => 'vendor'], function () {
 
     Route::get('report', [VendorController::class, 'vendor_sell_report'])->name('vendor.sell_report');
 
-    Route::any('/vendor/delivery/{id}', [DeliveryController::class, 'update'])->name('delivery.update');
+    Route::post('/delivery/{id}', [DeliveryController::class, 'update'])->name('delivery.update');
     
     // routes/web.php
     Route::get('/delivery/{id}', [DeliveryController::class, 'showDelivery'])->name('delivery.show');

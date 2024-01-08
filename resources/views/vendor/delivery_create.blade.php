@@ -33,7 +33,7 @@
                                 </div> -->
 
 
-                                <input type="hidden" name="item_name" value="BAL">
+                                <input type="hidden" name="item_name" value="BAL"/>
 
 
                                 <div class="row mb-3">
@@ -67,7 +67,7 @@
                                     </div>
                                 </div> --}}
 
-                                <option type="hidden" value="inside_city">
+                                <option type="hidden" value="inside_city"></option>
 
                                 {{-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-email">Delivery Type :</label>
@@ -83,16 +83,16 @@
                                     </div>
                                 </div> --}}
 
-                                <option type="hidden" value="Online Payment">
+                                <option type="hidden" value="Online Payment"></option>
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-phone">Delivery Charge :</label>
-                                    <div class="col-sm-10">
-                                        <input required type="number" name="delivery_charge" id="delivery_charge"
-                                            class="form-control phone-mask" placeholder="0" aria-label="658 799 8941"
-                                            aria-describedby="basic-default-phone" />
+                                    <div class="row mb-3">
+                                        <label class="col-sm-2 col-form-label" for="basic-default-phone">Delivery Charge :</label>
+                                        <div class="col-sm-10">
+                                            <input required type="number" name="delivery_charge" id="delivery_charge"
+                                                class="form-control phone-mask" placeholder="0" aria-label="658 799 8941"
+                                                aria-describedby="basic-default-phone" />
+                                        </div>
                                     </div>
-                                </div>
 
                                 <!-- <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-phone">Total Price :</label>
@@ -103,21 +103,21 @@
                                     </div>
                                 </div> -->
 
-                                <input type="hidden" name="total_price" value="10">
+                                <input type="hidden" name="total_price" value="10"/>
 
 
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Name :</label>
                                     <div class="col-sm-10">
                                         <input required name="recipient_name" type="text" class="form-control"
-                                            id="basic-default-address" placeholder="Recipiet Name" />
+                                            id="basic-default-address" placeholder="Recipient Name" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Number :</label>
                                     <div class="col-sm-10">
                                         <input required name="recipient_number" type="number" class="form-control"
-                                            id="basic-default-address" placeholder="Recipiet Number" maxlength="14" />
+                                            id="basic-default-address" placeholder="Recipient Number" maxlength="14" />
                                     </div>
                                 </div>
 
