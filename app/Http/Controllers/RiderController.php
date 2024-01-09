@@ -94,6 +94,8 @@ class RiderController extends Controller
             ->get();
 
         return view('rider.dashboard', $data);
+
+        
     }
 
     // which pick_rider is assigned to which delivery
@@ -568,5 +570,49 @@ class RiderController extends Controller
 
         return view('rider.pending_pickup', $data);
     }
+
+/*     public function search(Request $request)
+    {
+        $search = request('search');
+
+$riders = Rider::where('rider_name', 'like', "%$search%")
+    ->orWhere('email', 'like', "%$search%")
+    ->orWhere('mobile', 'like', "%$search%")
+    ->orWhere(function ($query) use ($search) {
+        $query->whereExists(function ($subQuery) use ($search) {
+            $subQuery->from('pending_pickups')
+                ->whereRaw('riders.id = pending_pickups.id')
+                ->where('rider_name', 'like', "%$search%");
+        })
+        ->orWhereExists(function ($subQuery) use ($search) {
+            $subQuery->from('pending_drops')
+                ->whereRaw('riders.id = pending_drops.id')
+                ->where('email', 'like', "%$search%");
+        })
+        ->orWhereExists(function ($subQuery) use ($search) {
+            $subQuery->from('completed_pickups')
+                ->whereRaw('riders.id = completed_pickups.id')
+                ->where('mobile', 'like', "%$search%");
+        })
+        ->orWhereExists(function ($subQuery) use ($search) {
+            $subQuery->from('completed_drops')
+                ->whereRaw('riders.id = completed_drops.id')
+                ->where('address', 'like', "%$search%");
+        });
+    })
+    ->get();
+
+    }
+ */
+public function search(Request $request)
+{
+    $search = $request->input('search');
+    $searchResults = Rider::where('rider_name', 'like', '%' . $search . '%')
+        ->orWhere('email', 'like', '%' . $search . '%')
+        ->orWhere('mobile', 'like', '%' . $search . '%')
+        ->get();
+
+    return view('rider.search-results', compact('searchResults'));
+}
 
 }

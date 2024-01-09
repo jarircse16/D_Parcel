@@ -23,4 +23,24 @@ class Rider extends Authenticatable
     ]; 
 
     public $timestamps = false;
+
+    public function pendingPickups()
+    {
+        return $this->hasMany(PendingPickup::class);
+    }
+
+    public function pendingDrops()
+    {
+        return $this->hasMany(PendingDrop::class);
+    }
+
+    public function completedPickups()
+    {
+        return $this->hasMany(CompletedPickup::class);
+    }
+
+    public function completedDrops()
+    {
+        return $this->hasMany(CompletedDrop::class);
+    }
 }

@@ -147,6 +147,7 @@ Route::group(['prefix' => 'rider', 'middleware' => 'rider'], function () {
 
     // Add this route for searching complete pickups
     Route::get('complete/pickup/search', [RiderController::class, 'searchCompletePickup'])->name('rider.complete.pickup.search');
+    Route::get('/search', [RiderController::class, 'search'])->name('rider.search');
 
 
 });

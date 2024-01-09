@@ -3,6 +3,9 @@
 
 @section('content')
     <!-- Layout wrapper -->
+    <!-- Add this to the head section -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
@@ -20,6 +23,45 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
 
+                                      <!-- Search Box -->
+                            <div class="mb-3">
+                                <form action="{{ route('rider.search') }}" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search rider information..." name="search">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /Search Box -->
+
+                            @if(isset($searchResults))
+                                <h4 class="vendor-title">Search Results</h4>
+                                <!-- Display your search results here -->
+                                {{-- For example, you can loop through the results and display them in a table --}}
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Rider Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <!-- Add other columns as needed -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($searchResults as $rider)
+                                            <tr>
+                                                <td>{{ $rider->id }}</td>
+                                                <td>{{ $rider->rider_name }}</td>
+                                                <td>{{ $rider->email }}</td>
+                                                <td>{{ $rider->phone }}</td>
+                                                <!-- Add other columns as needed -->
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                            
                             <!-- Vendor Food Orders row -->
                             <hr class="vendor-seperate">
                             <div class="row">
@@ -174,4 +216,24 @@
             <!-- / Layout wrapper -->
         </div>
     </div>
+    <script>
+        // AJAX request on form submission
+        $('#searchForm').submit(function (e) {
+            e.preventDefault(); // Prevent default form submission
+            var formData = $(this).serialize();
+    
+            $.ajax({
+                type: 'GET',
+                url: '{{ route('rider.search') }}',
+                data: formData,
+                success: function (data) {
+                    $('#searchResultsContainer').html(data); // Update the content with search results
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    </script>
+    @endif
 @endsection
