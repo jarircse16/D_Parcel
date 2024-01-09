@@ -57,6 +57,9 @@ Route::group(['prefix' => 'vendor', 'middleware' => 'vendor'], function () {
     // routes/web.php
     Route::get('/delivery/{id}', [DeliveryController::class, 'showDelivery'])->name('delivery.show');
     Route::view('/scan-qr-code', 'vendor.scan-qr-code')->name('vendor.scan-qr-code');
+    // Add this to your routes/web.php
+    Route::post('/delivery/search', [DeliveryController::class, 'search'])->name('delivery.search');
+
     
 
 

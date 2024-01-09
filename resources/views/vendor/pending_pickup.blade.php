@@ -9,8 +9,16 @@
 
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4"><a href="{{ URL::previous() }}" class="text-muted fw-light">Dashboard /</a> <a href="#"
-                    class="text-muted fw-light">Delivery /</a> Pending Delivery List</h4>
+                    class="text-muted fw-light">Delivery /</a> Pending Pickup List</h4>
 
+                        <!-- Search Form -->
+                        <form action="{{ route('vendor.pickup') }}" method="GET" class="mb-3">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search by item name, qty, recipient name, etc." aria-label="Search">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </form>    
 
             <!-- Hoverable Table rows -->
             <div class="card">

@@ -28,26 +28,50 @@ class DeliveryController extends Controller
     //     return view('vendor.pending_delivery', $data);
     // }
 
-    public function index()
+    public function index(Request $request)
     {
         $data['title'] = 'Delivery List';
-
+    
         // Get the currently authenticated vendor
         $vendor = Auth::guard('vendor')->user();
-
-        // Check if the vendor has any deliveries
-        if ($vendor) {
-            // Fetch deliveries only if the vendor has any
-            $data['deliveries'] = Delivery::where('vendor_id', $vendor->id)
-                ->latest()
-                ->get();
-        } else {
-            // If the vendor is not authenticated or has no deliveries, set an empty array
-            $data['deliveries'] = [];
+    
+        // Start with a query to get deliveries for the vendor
+        $query = Delivery::where('vendor_id', $vendor->id);
+    
+        // Check if a search term is provided
+        if ($request->has('search')) {
+            $search = $request->input('search');
+    
+            // Apply search criteria to the query
+            $query->where(function ($query) use ($search) {
+                $query->where('qty', 'like', "%$search%")
+                      ->orWhere('item_price', 'like', "%$search%")
+                      ->orWhere('delivery_charge', 'like', "%$search%")
+                      ->orWhere('recipient_name', 'like', "%$search%")
+                      ->orWhere('recipient_number', 'like', "%$search%")
+                      ->orWhere('recipient_address', 'like', "%$search%");
+            });
         }
-
+    
+        // Fetch deliveries
+        $data['deliveries'] = $query->latest()->get();
+    
         return view('vendor.pending_delivery', $data);
     }
+
+    // Add this method to your DeliveryController
+    public function search(Request $request)
+    {
+        // Retrieve search parameters from the request
+        $searchTerm = $request->input('search');
+    
+        // Perform search logic using the $searchTerm
+        $results = Delivery::where('field_to_search', 'like', "%$searchTerm%")->get();
+    
+        // Return the search results, possibly in a JSON response
+        return response()->json(['results' => $results]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

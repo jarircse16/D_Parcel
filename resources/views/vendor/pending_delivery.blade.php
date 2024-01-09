@@ -6,6 +6,15 @@
     <!-- Content wrapper -->
     <div class="content-wrapper">
         <!-- Content -->
+                <!-- Search Form -->
+     <br>   <form action="{{ route('delivery.index') }}" method="GET" class="mb-3">
+            @csrf
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search by weight, item price, delivery charge, etc." aria-label="Search">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+
 
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4"><a href="{{ URL::previous() }}" class="text-muted fw-light">Dashboard /</a> <a href="#"
