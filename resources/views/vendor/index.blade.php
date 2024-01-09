@@ -24,6 +24,15 @@
                             <div class="row">
                                 <h4 class="vendor-title">Vendor Dashboard</h4>
 
+                                <br>   <form action="{{ route('delivery.index') }}" method="GET" class="mb-3">
+                                    @csrf
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control" placeholder="Search by weight, item price, delivery charge, etc." aria-label="Search">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            
+
                                 <div class="col-lg-3 col-md-6 col-6 mb-4">
                                     <a href="{{ route('delivery.create') }}" style="color: black">
                                         <div class="card">

@@ -138,6 +138,16 @@ Route::group(['prefix' => 'rider', 'middleware' => 'rider'], function () {
     Route::get('processing-dropDetails/{id}', [RiderController::class, 'processing_pickdrop_details'])->name('processing_pickdrop_details');
     Route::post('processing-dropDetails/{id}', [RiderController::class, 'processing_pickdrop_store'])->name('processing_pickdrop_store');
 
+    // Pending pickup routes
+    Route::get('pending/pickup/list', [RiderController::class, 'pending_pick_delivery_list'])->name('rider.pending.pickup.list');
+    Route::get('pending/pickup/search', [RiderController::class, 'searchPendingPickup'])->name('rider.pending.pickup.search');
+    
+    //Pending Drop Routes
+    Route::get('pending/drop/search', [RiderController::class, 'searchPendingDrop'])->name('rider.pending.drop.search');
+
+    // Add this route for searching complete pickups
+    Route::get('complete/pickup/search', [RiderController::class, 'searchCompletePickup'])->name('rider.complete.pickup.search');
+
 
 });
 

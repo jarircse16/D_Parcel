@@ -122,7 +122,7 @@
                                 </div>
                                 <h1>Recipiet Info</h1>
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Name
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Name
                                         :</label>
                                     <div class="col-sm-10">
                                         <input readonly name="recipient_name" type="text" class="form-control"
@@ -130,7 +130,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient
                                         Number:</label>
                                     <div class="col-sm-10">
                                         <input readonly name="recipient_number" type="number" class="form-control"
@@ -139,7 +139,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipiet Address
+                                    <label class="col-sm-2 col-form-label" for="basic-default-address">Recipient Address
                                         :</label>
                                     <div class="col-sm-10">
                                         <input readonly name="recipient_address" type="text" class="form-control"

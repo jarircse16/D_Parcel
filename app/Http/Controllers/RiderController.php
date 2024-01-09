@@ -527,4 +527,46 @@ class RiderController extends Controller
 
         return redirect()->route('rider.dashboard');
     }
+
+
+        // Add this method to handle the search functionality
+    public function searchPendingPickup(Request $request)
+    {
+        $data['title'] = 'Pending Pickup List';
+
+        // Get the currently authenticated rider
+        $rider = Auth::guard('rider')->user();
+
+        // Check if the rider has any pending pickups
+        if ($rider) {
+            // Fetch pickups based on the search query
+            $data['deliveries'] = Delivery::where('pick_rider', $rider->id)
+                ->where('is_pick', 0)
+                ->where(function ($query) use ($request) {
+                    $query->where('item_name', 'like', '%' . $request->search . '%')
+                        ->orWhere('qty', 'like', '%' . $request->search . '%')
+                        ->orWhere('vendor_name', 'like', '%' . $request->search . '%');
+                })
+                ->latest()
+                ->get();
+        } else {
+            // If the rider is not authenticated or has no pickups, set an empty array
+            $data['deliveries'] = [];
+        }
+
+        return view('rider.pending_pickup', $data);
+    }
+
+    // Modify the existing method name to match the route name
+    public function pending_pick_delivery_list()
+    {
+        $data['title'] = 'Pending Pick Delivery';
+        $data['deliveries'] = Delivery::where('pick_rider', Auth::guard('rider')->user()->id)
+            ->where('is_pick', 0)
+            ->latest()
+            ->get();
+
+        return view('rider.pending_pickup', $data);
+    }
+
 }

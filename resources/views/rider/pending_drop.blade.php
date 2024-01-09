@@ -11,6 +11,17 @@
             <h4 class="fw-bold py-3 mb-4"><a href="{{ URL::previous() }}" class="text-muted fw-light">Dashboard /</a> <a href="#"
                     class="text-muted fw-light">Delivery /</a> Pending Drop List</h4>
 
+               {{-- <!-- Search Box -->
+               <div class="mb-3">
+                <form action="{{ route('rider.pending.drop.search') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search by Item Name" name="search">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /Search Box -->          --}}
+
 
             <!-- Hoverable Table rows -->
             <div class="card">
