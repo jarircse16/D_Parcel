@@ -64,10 +64,10 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">About Us</a>
+                <a class="nav-link" aria-current="page" href="#about-us">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Contact</a>
+                <a class="nav-link" aria-current="page" href="#contact-us">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{{ route('pickdrop') }}">Pick / Drop for You</a>
@@ -79,7 +79,7 @@
                 <a class="nav-link" aria-current="page" href="{{ route('rider.login') }}">D-Rider</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ route('admin.login') }}">Admins Login</a>
+                <a class="nav-link" aria-current="page" href="{{ route('admin.login') }}">Admin Login</a>
               </li>
             </ul>
           </div>
@@ -167,7 +167,7 @@
             <div class="footer-logo">
               <img class="img-fluid" src="{{ asset('customer/img/logo/Logo.png') }}" alt="dman" />
             </div>
-            <p>
+            <p id="about-us">
               DMan is a delivery service that allows Vendor to provide their product door to door with safety. We have
               the Fastest and most Reliable Dman’s, they take more than reasonable care to vendor products and provide
               their service in exact time. You will be pleased to be with DMan❤️
@@ -187,8 +187,8 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="footer-content p-lg-4">
+        <div class="col-lg-4 col-md-6" id="contact-us">
+          <div class="footer-content p-lg-4" >
             <h3>Get In Touch</h3>
             <ul>
               <li>
@@ -223,6 +223,10 @@
               </script> <span><a href="#">DMan</a></span>. All Rights Reserved.
             </p>
           </div>
+          <div class="col-lg-4 align-items-center">
+            <p class="text-center">
+             <a href="#">Go to Top</a>
+            </p></div>
           <div class="col-lg-4">
             <p class="text-center">
               Developed by <span><a href="https://www.facebook.com/jarir.in.ruet.cse/">3C Studio</a></span>
