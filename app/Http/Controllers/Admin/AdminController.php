@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Events\NotificationEvent;
+use App\Models\User;
+use App\Models\PendingPickup;
+use App\Models\PendingDrop;
+use App\Models\CompletedPickup;
+use App\Models\CompletedDrop;
 
 
 class AdminController extends Controller
@@ -378,5 +383,83 @@ class AdminController extends Controller
 
 
     // get the excel file data as an order
+
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    // Perform the search across multiple models/tables
+    $searchResults = [];
+
+    // Search in the Vendor model/table
+    $searchResults['vendors'] = Vendor::where('vendor_name', 'LIKE', "%$query%")
+        ->orWhere('email', 'LIKE', "%$query%")
+        ->orWhere('mobile', 'LIKE', "%$query%")
+        ->orWhere('address', 'LIKE', "%$query%")
+        ->get();
+
+    // Search in the Rider model/table
+    $searchResults['riders'] = Rider::where('rider_name', 'LIKE', "%$query%")
+        ->orWhere('email', 'LIKE', "%$query%")
+        ->orWhere('mobile', 'LIKE', "%$query%")
+        ->orWhere('address', 'LIKE', "%$query%")
+        ->get();
+
+    // Search in the Admin model/table
+    $searchResults['users'] = User::where('name', 'LIKE', "%$query%")
+    ->orWhere('email', 'LIKE', "%$query%")
+    ->get();
+
+    // Search in the PendingPickup model/table
+    $searchResults['pendingPickups'] = PendingPickup::where('rider_name', 'LIKE', "%$query%")
+    ->orWhere('email', 'LIKE', "%$query%")
+    ->orWhere('mobile', 'LIKE', "%$query%")
+    ->orWhere('address', 'LIKE', "%$query%")
+    ->get();
+
+    // Search in the PendingDrop model/table
+    $searchResults['pendingDrops'] = PendingDrop::where('rider_name', 'LIKE', "%$query%")
+    ->orWhere('email', 'LIKE', "%$query%")
+    ->orWhere('mobile', 'LIKE', "%$query%")
+    ->orWhere('address', 'LIKE', "%$query%")
+    ->get();
+
+    // Search in the CompletedPickup model/table
+    $searchResults['completedPickups'] = CompletedPickup::where('rider_name', 'LIKE', "%$query%")
+    ->orWhere('email', 'LIKE', "%$query%")
+    ->orWhere('mobile', 'LIKE', "%$query%")
+    ->orWhere('address', 'LIKE', "%$query%")
+    ->get();
+
+    // Search in the CompletedDrop model/table
+    $searchResults['completedDrops'] = CompletedDrop::where('rider_name', 'LIKE', "%$query%")
+    ->orWhere('email', 'LIKE', "%$query%")
+    ->orWhere('mobile', 'LIKE', "%$query%")
+    ->orWhere('address', 'LIKE', "%$query%")
+    ->get();
+
+    $data['title'] = "Admin Dashboard";
+    $data['total_vendor'] = Vendor::all()->count();
+    $data['total_rider'] = Rider::all()->count();
+    $data['total_customer'] = Customer::all()->count();
+    $data['total_pending_delivery'] = Delivery::where('status', 'Pending')->count();
+    $data['total_processing_delivery'] = Delivery::where('status', 'Processing')->count();
+    $data['pending_pickup'] = Delivery::where('status', 'Pending_Pickup')->count();
+    $data['total_completed_delivery'] = Delivery::where('status', 'Completed')->count();
+    $data['total_area'] = Area::where('status', 'Active')->count();
+    $data['total_bulk_delivery'] = BulkDelivery::all()->count();
+    // pickdrops
+
+    $data['total_pickdrops'] = PickDrop::all()->count();
+    $data['total_pending_pick'] = PickDrop::where('status', 'Pending')->count();
+    $data['total_processing_pick'] = PickDrop::where('status', 'Processing')->count();
+    $data['total_completed_pick'] = PickDrop::where('status', 'Completed')->count();
+    $data['total_cancel_pick'] = PickDrop::where('status', 'Cancel')->count();
+    $data['searchResults'] = $searchResults;
     
+    return view('backend.index', $data);
+   // return view('backend.index', compact('total_cancel_pick','total_completed_pick','total_processing_pick','total_pending_pick','total_pickdrops','total_area','total_rider','total_vendor','total_bulk_delivery','total_completed_delivery','total_processing_delivery','pending_pickup','searchResults', 'total_pending_delivery', 'pending_pickups'));
+}
+
+
 }

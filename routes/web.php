@@ -183,7 +183,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('vendor/delivery/by/date', [AdminVendorController::class, 'delivery_by_date'])->name('delivery.by.date');
     Route::post('vendor/delivery/by/date', [AdminVendorController::class, 'delivery_by_date_store'])->name('delivery.by.date.store');
 
-    
+    Route::get('/search', [AdminController::class, 'search'])->name('admin.search');
 
     Route::get('vendor/date2date/list', [AdminVendorController::class, 'date_to_date_list'])->name('date2date.list');
     Route::get('vendor/date2date/create', [AdminVendorController::class, 'date_to_date'])->name('date2date.create');

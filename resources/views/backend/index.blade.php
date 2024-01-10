@@ -21,6 +21,18 @@
 
                             <!-- Vendor Food Orders row -->
                             <hr class="vendor-seperate">
+                    
+                            <!-- Search Bar and Button -->
+                            <div class="mb-4">
+                                <form action="{{ route('admin.search') }}" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search..." name="query">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End Search Bar and Button -->
+
                             <div class="row">
                                 <h4 class="vendor-title">Admin Dashboard</h4>
                                 <div class="col-lg-3 col-md-6 col-6 mb-4">
@@ -274,7 +286,7 @@
                                                     <div class="avatar flex-shrink-0">
 
                                                         <!-- <i class='vendor-icon bx bx-group'></i> -->
-                                                        <i <i style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-plane-slash"></i>
+                                                        <i  style="background-color: #f7b614;padding:12px 10px 12px 10px;font-size: 18px;border-radius: 100px;" class="fa-solid fa-plane-slash"></i>
                                                     </div>
                                                 </div>
 
