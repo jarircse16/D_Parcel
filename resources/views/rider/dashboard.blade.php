@@ -1,6 +1,46 @@
 
 @extends('rider.app')
+{{-- @php
+$conn=mysqli_connect("localhost", "root", "", "test_dparcel");
+if(mysqli_connect_errno()){
+echo "Connection Fail".mysqli_connect_error();
+}
 
+// Handle the search request
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["search"])) {
+    $searchTerm = $_GET["search"];
+
+    // Perform the search query
+    $sql = "SELECT pick_drops.*, vendors.vendor_name, vendors.mobile, vendors.address 
+            FROM pick_drops
+            LEFT JOIN vendors ON pick_drops.id = vendors.id 
+            WHERE pick_drops.item_name LIKE '%$searchTerm%' 
+            OR pick_drops.qty LIKE '%$searchTerm%' 
+            OR vendors.vendor_name LIKE '%$searchTerm%' 
+            OR vendors.mobile LIKE '%$searchTerm%' 
+            OR vendors.address LIKE '%$searchTerm%'";
+    
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Display search results
+        echo "<h2>Search Results:</h2>";
+        echo "<table border='1'>";
+        echo "<tr><th>ID</th><th>Item Name</th><th>Qty</th><th>Vendor Name</th><th>Mobile</th><th>Address</th></tr>";
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr><td>{$row['id']}</td><td>{$row['item_name']}</td><td>{$row['qty']}</td><td>{$row['vendor_name']}</td><td>{$row['mobile']}</td><td>{$row['address']}</td></tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "<p>No results found.</p>";
+    }
+
+    // Close the database connection
+    $conn->close();
+}
+@endphp --}}
 @section('content')
     <!-- Layout wrapper -->
     <!-- Add this to the head section -->
@@ -25,12 +65,13 @@
 
                                       <!-- Search Box -->
                             <div class="mb-3">
-                                <form action="{{ route('rider.search') }}" method="GET">
+                                <form id="searchForm" method="GET">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search rider information..." name="search">
-                                        <button type="submit" class="btn btn-primary">Search</button>
+                                        <input type="text" class="form-control" placeholder="Search rider information..." id="search" name="search">
+                                        <button type="submit" onclick="performSearch()" class="btn btn-primary">Search</button>
                                     </div>
                                 </form>
+                                <div id="searchResultsContainer"></div>
                             </div>
                             <!-- /Search Box -->
 
@@ -45,6 +86,7 @@
                                             <th>Rider Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
+                                            <th>Address</th>
                                             <!-- Add other columns as needed -->
                                         </tr>
                                     </thead>
@@ -55,6 +97,7 @@
                                                 <td>{{ $rider->rider_name }}</td>
                                                 <td>{{ $rider->email }}</td>
                                                 <td>{{ $rider->phone }}</td>
+                                                td>{{ $rider->address }}</td>
                                                 <!-- Add other columns as needed -->
                                             </tr>
                                         @endforeach
@@ -235,5 +278,23 @@
             });
         });
     </script>
+    <script>
+// function performSearch() {
+//     var searchTerm = document.getElementById('search').value;
+
+//     // AJAX request
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', '<?php echo $_SERVER["PHP_SELF"]; ?>?search=' + searchTerm, true);
+
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState == 4 && xhr.status == 200) {
+//             // Update the content of the search results container
+//             document.getElementById('searchResultsContainer').innerHTML = xhr.responseText;
+//         }
+//     };
+
+//     xhr.send();
+// }
+</script>
     @endif
 @endsection

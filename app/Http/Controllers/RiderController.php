@@ -610,6 +610,7 @@ public function search(Request $request)
     $searchResults = Rider::where('rider_name', 'like', '%' . $search . '%')
         ->orWhere('email', 'like', '%' . $search . '%')
         ->orWhere('mobile', 'like', '%' . $search . '%')
+        ->orWhere('address', 'like', '%' . $search . '%')
         ->get();
 
     return view('rider.search-results', compact('searchResults'));
