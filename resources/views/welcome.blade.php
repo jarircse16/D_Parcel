@@ -36,7 +36,7 @@
   <div class="preloader">
     <div class="preloader-inner">
       <div class="preloader-icon">
-        <img src="{{ asset('customer/img/preloader.gif') }}" alt="">
+        <img src="{{ asset('customer/img/preloader.gif') }}" loading = "lazy" alt="">
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
         <div class="container-fluid p-0">
           <!-- logo -->
           <a class="navbar-brand" href="#">
-            <img class="img-fluid logo" src="{{ asset('customer/img/logo/logo.png') }}" alt="dman" />
+            <img class="img-fluid logo" src="{{ asset('customer/img/logo/logo.png') }}" loading = "lazy" alt="dman" />
           </a>
           <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button"
             data-bs-toggle="collapse" data-bs-target="#nav_custom" aria-controls="nav_custom" aria-expanded="false"
@@ -165,7 +165,7 @@
         <div class="col-lg-4 col-md-6 ">
           <div class="footer-content">
             <div class="footer-logo">
-              <img class="img-fluid" src="{{ asset('customer/img/logo/Logo.png') }}" alt="dman" />
+              <img class="img-fluid" src="{{ asset('customer/img/logo/Logo.png') }}"  loading = "lazy" alt="dman" />
             </div>
             <p id="about-us">
               DMan is a delivery service that allows Vendor to provide their product door to door with safety. We have
